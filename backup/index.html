@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>留言板</title>
+  <link href="css\bootstrap.min.css" rel="stylesheet">
+ </head>
+ <body background="img\rem-background.jpg">
+  <div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			  <div id="legend" class="">
+				<legend class="" align="center">留言板</legend>
+			  </div>
+			<div class="row-fluid">
+				<div class="span6">
+					<img src="img\rem-img.jpg"  hspace="90px" alt="雷姆" width="500px"; height="344px" align="center"/>
+					<br>
+					<br>
+					<br>
+					<br>
+					<div class="control-group" align="center">
+						  <!-- Text input-->
+						  <label class="control-label" for="input01">用户名:</label>
+						  <div class="controls">
+							<input type="text" name="username" id="username" class="username" placeholder="这里输入您的用户名">
+						  </div>
+					</div>
+
+					<div class="control-group" align="center">
+
+						  <!-- Textarea -->
+						  <label class="control-label">内容:</label>
+						  <div class="controls">
+							<div class="textarea">
+								  <textarea type="text" name="amessage" id="amessage" class="amessage" style="margin: 0px; width: 500px; height: 150px;"> </textarea>
+							</div>
+						  </div>
+					</div>
+
+					<div class="control-group">
+						  <label class="control-label"></label>
+
+						  <!-- Button -->
+						  <div class="controls" align="center">
+							<button class="btn btn-success" style="width: 500px; height: 30px" onclick="successPost()">提交</button>
+						  </div>
+					</div>
+				</div>
+
+				<div class="span6">
+					<div class="pagination pagination-small pagination-centered">
+
+					<?php 
+					include("db.php");
+					 $sql = "select * from `message` where `id` ='1' order by id asc"; 
+					 $query =mysqli_query($sql);
+					 while($row = mysqli_fetch_array($query)){  
+					?> 
+						<div class="post" id="post<?php echo $row['id'];?>"> 
+							<div class="post_title"><p><?php echo $row['id'];?> <?php echo $row['username'];?> <?php echo $row['lastdate'];?></p></div>
+							<div class="post_content"><pre><?php echo $row['content'];?></pre></div> 
+						</div> 
+					<?php 
+					 }
+					?> 
+						<ul>
+							<li>
+								<a href="#">上一页</a>
+							</li>
+							<li>
+								<a href="#">1</a>
+							</li>
+							<li>
+								<a href="#">2</a>
+							</li>
+							<li>
+								<a href="#">3</a>
+							</li>
+							<li>
+								<a href="#">4</a>
+							</li>
+							<li>
+								<a href="#">5</a>
+							</li>
+							<li>
+								<a href="#">下一页</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ </div>
+<script src="js\require.js" data-main="js\main"></script>
+</body>
+</html>
