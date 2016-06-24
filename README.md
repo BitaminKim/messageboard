@@ -3,4 +3,4 @@
   主页
 ###pagepost.php
   连接数据库处理查询分页
-  !(message)[message.jpg]
+  ![message](message.jpg)
