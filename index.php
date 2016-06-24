@@ -10,7 +10,7 @@
         #content {width:45%;float: left;}
 	</style>
 </head>
-<body background="img/rem-background.jpg">
+<body background="img/back-ground.jpg">
   <form class="form-horizontal">
     <fieldset>
 	<div id="container">
@@ -18,7 +18,7 @@
         <legend id="board" class="board" align="center">留言板</legend>
       </div>
 	  <div id="left">
-		<img src="img/rem-img.jpg"  hspace="90px" alt="雷姆" width="580px"; height="400px" align="center"/>
+		<img src="img/backblock.png"  hspace="90px" align="center"/>
 		<br>
 		<br>
 

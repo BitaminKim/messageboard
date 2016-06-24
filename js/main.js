@@ -1,6 +1,6 @@
 require.config({
 	paths:{
-		"jquery":'jquery-2.1.4'
+		"jquery":'jquery-3.0.0'
 
 	}
 });
