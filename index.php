@@ -54,6 +54,19 @@
 
 	  <div id="content">
 		<div></div>
+		<?php 
+			include("db.php");
+			$sql = "select * from `message` order by id desc"; 
+			$query = mysqli_query($con,$sql);
+			while($row=mysqli_fetch_array($query)){
+		  ?> 
+		  <div class="post" id="post<?php echo $row['id'];?>"> 
+			<div class="id"><p align="left">留言编号：<?php echo $row['id'];?> 用户名：<?php echo $row['username'];?> 留言时间： <?php echo $row['lastdate'];?></p></div>
+			<div class="contentmes" align="left"><pre><?php echo $row['content'];?></pre></div> 
+		  </div> 
+		  <?php 
+			}
+		  ?> 
 	  <div id='pagecount'></div>
 
 	  </div>
