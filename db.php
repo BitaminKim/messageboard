@@ -1,7 +1,7 @@
 
 <?php
 	header("Content-type: text/html; charset=utf-8");
-	$con  = mysqli_connect('localhost','root','root') or die ("MySQL连接错误");
+	$con  = mysqli_connect('localhost','root','0oPRSRg1WHsAaUe') or die ("MySQL连接错误");
 	if(mysqli_select_db($con,'message_board')){//如果有数据库就直接使用创建数据表，如果没有就创建数据库再创建数据表
 		$sql = "CREATE TABLE IF NOT EXISTS message (
 				`id` int(11) NOT NULL AUTO_INCREMENT,

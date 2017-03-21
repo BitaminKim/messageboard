@@ -10,7 +10,10 @@
         #content {width:45%;float: left;}
 	</style>
 </head>
-<body background="img/rem-background.jpg">
+<body>
+  <div id="Layer1" style="position:absolute; width:100%; height:100%; z-index:-1">    
+    <img src="img/back-ground.jpg" height="100%" width="100%"/>    
+  </div>
   <form class="form-horizontal">
     <fieldset>
 	<div id="container">
@@ -18,7 +21,7 @@
         <legend id="board" class="board" align="center">留言板</legend>
       </div>
 	  <div id="left">
-		<img src="img/rem-img.jpg"  hspace="90px" alt="雷姆" width="580px"; height="400px" align="center"/>
+		<img src="img/backblock.png"  hspace="90px" align="center"/>
 		<br>
 		<br>
 
@@ -51,6 +54,19 @@
 
 	  <div id="content">
 		<div></div>
+		<?php 
+			include("db.php");
+			$sql = "select * from `message` order by id desc"; 
+			$query = mysqli_query($con,$sql);
+			while($row=mysqli_fetch_array($query)){
+		  ?> 
+		  <div class="post" id="post<?php echo $row['id'];?>"> 
+			<div class="id"><p align="left">留言编号：<?php echo $row['id'];?> 用户名：<?php echo $row['username'];?> 留言时间： <?php echo $row['lastdate'];?></p></div>
+			<div class="contentmes" align="left"><pre><?php echo $row['content'];?></pre></div> 
+		  </div> 
+		  <?php 
+			}
+		  ?> 
 	  <div id='pagecount'></div>
 
 	  </div>
